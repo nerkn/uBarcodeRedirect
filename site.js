@@ -129,7 +129,7 @@ const scanner = {
         if (result) {
           console.log(result.getText()); // Replace with desired action for the result
         }
-        if (err) {
+        if (err && (err.message !== 'No MultiFormat Readers were able to detect the code.' )) {
           console.error(err);
         }
       });
