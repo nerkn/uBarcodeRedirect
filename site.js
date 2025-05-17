@@ -129,9 +129,9 @@ const scanner = {
         if (result) {
           console.log(result.getText()); // Replace with desired action for the result
           const barcode = result.getText();
-          stopScanning();
+          this.stopScanning();
           const product = state.products.find(p => p.barcode === barcode);
-          openProductModal(product)
+          this.openProductModal(product)
         }
         if (err && (err.message !== 'No MultiFormat Readers were able to detect the code.' )) {
           console.error(err);
