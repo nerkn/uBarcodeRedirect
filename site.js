@@ -128,6 +128,10 @@ const scanner = {
       codeReader.decodeFromVideoDevice(null, elements.scannerVideo, (result, err) => {
         if (result) {
           console.log(result.getText()); // Replace with desired action for the result
+          const barcode = result.getText();
+          stopScanning();
+          const product = state.products.find(p => p.barcode === barcode);
+          openProductModal(product)
         }
         if (err && (err.message !== 'No MultiFormat Readers were able to detect the code.' )) {
           console.error(err);
