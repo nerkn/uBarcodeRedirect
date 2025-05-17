@@ -1,7 +1,7 @@
 {
   "app": {
-    "title": "Türk Giyim Mağazası",
-    "desc": "En iyi kalitede Türk giyim ürünleri"
+    "title": "Giyim Mağazası",
+    "desc": "En iyi kalitede giyim ürünleri"
   },
   "data": {
     "products": [

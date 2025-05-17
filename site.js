@@ -2,6 +2,7 @@
  * Turkish Clothing Store - Mobile Web App
  * Main JavaScript file
  */
+import { BrowserMultiFormatReader } from 'https://cdn.jsdelivr.net/npm/@zxing/library@latest/+esm';
 
 // State Management
 const state = {
@@ -99,9 +100,10 @@ const utils = {
 const scanner = {
   async init() {
     try {
-      if (!('BarcodeDetector' in window)) {
-        throw new Error('Barcode Detection API is not supported');
-      }
+      // Removed BarcodeDetector API usage as it is not working
+      // if (!('BarcodeDetector' in window)) {
+      //   throw new Error('Barcode Detection API is not supported');
+      // }
 
       elements.scanButton.addEventListener('click', this.startScanning.bind(this));
       elements.closeScannerBtn.addEventListener('click', this.stopScanning.bind(this));
@@ -121,34 +123,19 @@ const scanner = {
       elements.scannerUI.classList.remove('hidden');
       state.isScanning = true;
 
-      const barcodeDetector = new BarcodeDetector();
-      this.detectBarcodes(barcodeDetector);
+      const codeReader = new BrowserMultiFormatReader();
+
+      codeReader.decodeFromVideoDevice(null, elements.scannerVideo, (result, err) => {
+        if (result) {
+          console.log(result.getText()); // Replace with desired action for the result
+        }
+        if (err && !(err instanceof ZXing.NotFoundException)) {
+          console.error(err);
+        }
+      });
     } catch (error) {
       console.error('Error starting scanner:', error);
       alert('Kamera erişimi sağlanamadı. Lütfen kamera izinlerini kontrol edin.');
-    }
-  },
-
-  async detectBarcodes(detector) {
-    if (!state.isScanning) return;
-
-    try {
-      const barcodes = await detector.detect(elements.scannerVideo);
-      
-      for (const barcode of barcodes) {
-        const product = state.products.find(p => p.barcode === barcode.rawValue);
-        
-        if (product) {
-          this.stopScanning();
-          app.openProductModal(product);
-          return;
-        }
-      }
-
-      // Continue scanning if no matching barcode found
-      requestAnimationFrame(() => this.detectBarcodes(detector));
-    } catch (error) {
-      console.error('Barcode detection error:', error);
     }
   },
 
