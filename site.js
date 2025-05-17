@@ -129,6 +129,7 @@ const scanner = {
         if (result) {
           console.log(result.getText()); // Replace with desired action for the result
           const barcode = result.getText();
+          codeReader.reset();
           this.stopScanning();
           const product = state.products.find(p => p.barcode === barcode);
           app.openProductModal(product)
