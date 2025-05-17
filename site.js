@@ -129,7 +129,7 @@ const scanner = {
         if (result) {
           console.log(result.getText()); // Replace with desired action for the result
         }
-        if (err && !(err instanceof ZXing.NotFoundException)) {
+        if (err) {
           console.error(err);
         }
       });
