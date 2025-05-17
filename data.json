@@ -6,7 +6,7 @@
   "data": {
     "products": [
       {
-        "barcode": "TRK001",
+        "barcode": "http://en.m.wikipedia.org",
         "name": "Klasik Beyaz Gömlek",
         "desc": "Yüksek kaliteli pamuktan yapılmış klasik beyaz gömlek. Her gardıropta bulunması gereken temel bir parça.",
         "price": "299₺",
