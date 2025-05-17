@@ -132,7 +132,10 @@ const scanner = {
           codeReader.reset();
           this.stopScanning();
           const product = state.products.find(p => p.barcode === barcode);
-          app.openProductModal(product)
+          if (product && product.videoUrl1) {
+            window.open(product.videoUrl1, '_blank');
+            //app.openProductModal(product)
+          }
         }
         if (err && (err.message !== 'No MultiFormat Readers were able to detect the code.' )) {
           console.error(err);
