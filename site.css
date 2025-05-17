@@ -354,7 +354,7 @@ p {
 .modal-header {
   position: sticky;
   top: 0;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   padding: var(--space-3);
@@ -426,7 +426,7 @@ p {
   border-radius: var(--radius-medium);
   overflow: hidden;
   background-color: #000;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 9/16;
   margin-top: 0;
 }
 
