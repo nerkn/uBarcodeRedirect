@@ -383,7 +383,7 @@ p {
 }
 
 .modal-content {
-  padding: var(--space-3);
+  padding:0;
 }
 
 .product-image-container {
@@ -418,7 +418,7 @@ p {
 
 /* Video section */
 .product-video {
-  margin-top: var(--space-4);
+  margin-top: 0;
 }
 
 .video-container {
@@ -427,7 +427,7 @@ p {
   overflow: hidden;
   background-color: #000;
   aspect-ratio: 16 / 9;
-  margin-top: var(--space-2);
+  margin-top: 0;
 }
 
 #video-placeholder {
