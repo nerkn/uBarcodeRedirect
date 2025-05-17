@@ -123,7 +123,7 @@ const scanner = {
       elements.scannerUI.classList.remove('hidden');
       state.isScanning = true;
 
-      const codeReader = new BrowserMultiFormatReader({2: [9, 11]});
+      const codeReader = new BrowserMultiFormatReader();
 
       codeReader.decodeFromVideoDevice(null, elements.scannerVideo, (result, err) => {
         if (result) {
