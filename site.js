@@ -309,7 +309,7 @@ const app = {
     elements.productModal.classList.add('active');
     document.body.style.overflow = 'hidden';
     state.isModalOpen = true;
-    
+    this.playVideo()
     // Animate modal entry
     utils.animateElement(elements.modalProductImage, 'fade-in');
   },

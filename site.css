@@ -335,7 +335,7 @@ p {
 .modal-container {
   position: relative;
   width: 90%;
-  max-width: 500px;
+  /* max-width: 500px; */
   max-height: 90vh;
   background-color: var(--color-background);
   border-radius: var(--radius-large);
